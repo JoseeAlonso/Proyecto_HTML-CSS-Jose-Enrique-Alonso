@@ -1,0 +1,459 @@
+:root {
+  --background-blue: rgb(34, 39, 114);
+  --background-grey: rgb(202, 202, 202);
+  --background-white: #ffffff;
+  --letra-blanca: #ffffff;
+  --letra-azul: rgb(34, 39, 114);
+  --base-color: black;
+  --font-size-h1: 40px;
+  --font-size-normal: 18px;
+  --space-padding: 2%;
+  --border-radius: 20px;
+  --section-color: rgb(209, 208, 208);
+  --shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px,
+    rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+}
+/*Importación de fuentes*/
+@font-face {
+  font-family: "Roboto";
+  src: url("/Assets/Fonts/Roboto/Roboto-VariableFont_wdth\,wght.ttf")
+    format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Montserrat";
+  src: url("/Assets/Fonts/Montserrat/Montserrat-VariableFont_wght.ttf")
+    format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+/*Elección de fuentes predeterminadas para el documento*/
+body {
+  font-family: "Roboto", sans-serif;
+  color: var(--base-color);
+  background-color: var(--background-grey);
+  font-size: var(--font-size-normal);
+  overflow-x: hidden;
+}
+
+/*formatos predeterminados para los h1 y h2 del documento*/
+h1,
+h2, button {
+  color: var(--letra-blanca);
+  font-family: "Montserrat", sans-serif;
+  font-size: var(--font-size-normal);
+}
+/*Sección Header - barra de navegación, imagen de perfil, @media sin acción*/
+h1 {
+  display: flex;
+  align-self: center;
+  height: 20px;
+  margin: 30px;
+  font-style: italic;
+  font-size: var(--font-size-h1);
+}
+
+header {
+  display: flex;
+  padding: var(--space-padding);
+  background-color: var(--background-blue);
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  padding: 75px;
+}
+
+header > img {
+  width: 100px;
+}
+
+header > nav {
+  flex-grow: 1;
+  display: flex;
+  justify-content: center;
+  position: relative;
+  top: 100px;
+}
+
+.nav-list {
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
+  list-style: none;
+  margin-right: 12%;
+}
+
+.nav-list > li >a:hover{
+  color: rgb(136, 136, 190);
+}
+
+a {
+  color: var(--letra-blanca);
+  font-size: 20px;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.menu {
+  display: none;
+  width: 80px;
+  height: 80px;
+}
+
+@media (max-width: 1080px) {
+  header > nav {
+    display: none;
+  }
+  .menu {
+    display: block;
+  }
+}
+
+/*Header - Parte izquierda (foto perfil)*/
+.foto-perfil {
+  width: 100%;
+  height: 100%;
+  max-width: 200px;
+  max-height: 200px;
+  border-radius: 50%;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  border-color: #ffffff;
+  border-style: solid;
+  border-width: 3px;
+  margin-left: 30px;
+}
+
+@media (max-width:530px){
+  .foto-perfil {
+  min-width: 110px;
+  max-width: 110px;
+  min-height: 100px;
+  max-height: 110px;
+  }
+
+}
+
+.foto-perfil img {
+  width: 100%;
+  height: 135%;
+  object-fit: contain;
+}
+
+/*Main - Section hero*/
+#hero {
+  display: flex;
+  align-items: center;
+  min-height: 40svh;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  padding: 30px;
+  background-image: url(Assets/Img/Background-img.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 100%;
+  padding: 75px;
+}
+
+/*Parte izquierda*/
+.info {
+  flex: 1;
+  width: 100%;
+  min-width: 250px;
+}
+
+/*Parte Derecha*/
+#hero > img {
+  width: 35%;
+  max-width: 350px;
+  min-width: 180px;
+  margin-top: 5%;
+  margin-right: 15%;
+  border-radius: var(--border-radius);
+}
+
+.info > h1 > span {
+  color: var(--letra-blanca);
+  margin-right: 90px;
+  flex-wrap: wrap;
+}
+
+.info > p {
+  padding: 12% 20% 0 0;
+  margin-right: 90px;
+  color: var(--letra-blanca);
+  font-family: "Montserrat", sans-serif;
+  font-size: var(--font-size-normal);
+}
+
+/*@media para separaciones entre contenedores*/
+@media (max-width: 1030px) {
+  .info {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  .info h1 {
+    font-size: 26px;
+    line-height: 1.2;
+  }
+
+  .info h1 span {
+    margin-right: 0 !important;
+    display: block;
+    margin-bottom: 5px;
+  }
+
+  .info p {
+    font-size: 16px;
+    line-height: 1.4;
+  }
+}
+
+/*Main - Sección "Sobre Mí"*/
+#sobremi {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-radius: var(--border-radius);
+  border-width: 5px;
+  background-color: var(--section-color);
+  margin-top: 2%;
+  width: 100%;
+}
+
+.h2-info {
+  display: flex;
+  justify-content: space-between;
+  padding: var(--space-padding);
+  background-color: var(--background-blue);
+  margin: 30px;
+  border-radius: var(--border-radius);
+  box-shadow: var(--shadow);
+}
+
+.description {
+  padding: var(--space-padding);
+  width: 80%;
+  font-style: italic;
+  text-indent: 5%;
+  line-height: 1.5;
+  background-color: rgb(214, 214, 214);
+  border-radius: var(--border-radius);
+  box-shadow: var(--shadow);
+}
+
+/*Main - Sección "Aficiones"*/
+#aficiones {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-radius: var(--border-radius);
+  border-width: 5px;
+  background-color: var(--section-color);
+  margin-top: 2%;
+  width: 100%;
+}
+
+.h2-aficiones {
+  display: flex;
+  justify-content: space-between;
+  padding: var(--space-padding);
+  background-color: var(--background-blue);
+  margin: 30px;
+  border-radius: var(--border-radius);
+  box-shadow: var(--shadow);
+}
+
+.description-educacion {
+  padding: var(--space-padding);
+  padding-bottom: 0;
+  width: 80%;
+  font-style: italic;
+  text-indent: 5%;
+  line-height: 1.5;
+  background-color: rgb(214, 214, 214);
+  border-radius: var(--border-radius);
+  box-shadow: var(--shadow);
+}
+
+/*Main - Sección "Educación"*/
+#educacion {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-radius: var(--border-radius);
+  border-width: 5px;
+  background-color: var(--section-color);
+  margin-top: 2%;
+  width: 100%;
+}
+
+.h2-educacion {
+  display: flex;
+  justify-content: space-between;
+  padding: var(--space-padding);
+  background-color: var(--background-blue);
+  margin: 30px;
+  border-radius: var(--border-radius);
+  box-shadow: var(--shadow);
+}
+
+.list {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  margin: 20px;
+  gap: 20px;
+}
+
+.list li {
+  background-color: rgb(214, 214, 214);
+  border-radius: var(--border-radius);
+  box-shadow: var(--shadow);
+  font-style: normal;
+}
+.list li a {
+  color: var(--base-color);
+}
+.list li a:hover {
+  color: rgb(136, 136, 190);
+}
+
+/*Main - Sección "Proyectos"*/
+#proyectos {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-radius: var(--border-radius);
+  border-width: 5px;
+  background-color: var(--section-color);
+  margin-top: 2%;
+  width: 100%;
+}
+
+.h2-proyectos {
+  display: flex;
+  justify-content: space-between;
+  padding: var(--space-padding);
+  background-color: var(--background-blue);
+  margin: 30px;
+  border-radius: var(--border-radius);
+  box-shadow: var(--shadow);
+}
+
+/*Main - Grid en imgágenes de proyectos propios*/
+.description-grid {
+  width: 80%;
+  display: grid;
+  align-items: center;
+  justify-items: center;
+  justify-content: center;
+  align-content: center;
+  grid-template-columns: repeat(auto-fill, minmax(310px , 1fr));
+}
+@media (max-width: 1565px) {
+  .description-grid {
+    grid-template-columns: repeat(auto-fill, minmax(250px , 1fr));
+  }
+}
+
+@media (max-width: 1265px) {
+  .description-grid {
+    grid-template-columns: repeat(auto-fill, minmax(400px , 1fr));
+  }
+}
+
+.description-grid img {
+  width: 40%;
+  max-width: 500px;
+  min-width: 300px;
+  object-fit: cover;
+  border-radius: var(--border-radius);
+  margin-bottom: 30px;
+  margin-top: 30px;
+  box-shadow: var(--shadow);
+  margin-right: 30%;
+}
+
+@media (max-width: 530px) {
+  .description-grid img {
+    min-width: 60%;
+    max-width: 65%;
+  }
+}
+
+.description-grid figcaption {
+  margin-top: 70px;
+  margin-bottom: 100px;
+  margin-right: 40%;
+  padding-left: 20px;
+}
+
+/*Main - Sección "Contacto"*/
+#contacto {
+  display: flex;
+  align-items: center;
+  border-radius: var(--border-radius);
+  border-width: 5px;
+  background-color: var(--section-color);
+  margin-top: 2%;
+  width: 100%;
+}
+
+.h2-contacto {
+  display: flex;
+  padding: var(--space-padding);
+  background-color: var(--background-blue);
+  margin: 30px;
+  border-radius: var(--border-radius);
+  box-shadow: var(--shadow);
+  width: 30%;
+  justify-content: center;
+  align-items: center;
+}
+
+/*Main - formulario de contacto*/
+fieldset {
+  display: flex;
+  align-items: start;
+  justify-content: space-between;
+  flex-direction: column;
+  padding: 20px;
+  gap: 10px;
+}
+
+form {
+  margin: 20px;
+}
+
+button {
+  margin: 20px;
+  padding: 6px;
+  background-color: var(--background-blue);
+  color: #ffffff;
+  border-radius: var(--border-radius);
+  cursor: pointer;
+}
+
+/*Footer - Sección copy y social (Redes sociales/contacto)*/
+#social img {
+  width: 30px;
+  margin: 0 10px;
+}
+
+footer {
+  text-align: center;
+}
